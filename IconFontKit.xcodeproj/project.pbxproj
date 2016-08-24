@@ -12,6 +12,7 @@
 		3AC321EE1D6CC5240078FA25 /* IconFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC321EA1D6CC5240078FA25 /* IconFont.swift */; };
 		3AC321EF1D6CC5240078FA25 /* IconFontEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC321EB1D6CC5240078FA25 /* IconFontEnum.swift */; };
 		3AC321F01D6CC5240078FA25 /* UIKitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC321EC1D6CC5240078FA25 /* UIKitExtension.swift */; };
+		3AC322051D6DC71A0078FA25 /* UnicodeStringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC322041D6DC71A0078FA25 /* UnicodeStringProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		3AC321EA1D6CC5240078FA25 /* IconFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconFont.swift; sourceTree = "<group>"; };
 		3AC321EB1D6CC5240078FA25 /* IconFontEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconFontEnum.swift; sourceTree = "<group>"; };
 		3AC321EC1D6CC5240078FA25 /* UIKitExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitExtension.swift; sourceTree = "<group>"; };
+		3AC322041D6DC71A0078FA25 /* UnicodeStringProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnicodeStringProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				3AC321E91D6CC5240078FA25 /* FontBlaster.swift */,
 				3AC321EA1D6CC5240078FA25 /* IconFont.swift */,
 				3AC321EB1D6CC5240078FA25 /* IconFontEnum.swift */,
+				3AC322041D6DC71A0078FA25 /* UnicodeStringProtocol.swift */,
 				3AC321EC1D6CC5240078FA25 /* UIKitExtension.swift */,
 			);
 			path = IconFontKit;
@@ -154,6 +157,7 @@
 				3AC321EE1D6CC5240078FA25 /* IconFont.swift in Sources */,
 				3AC321F01D6CC5240078FA25 /* UIKitExtension.swift in Sources */,
 				3AC321EF1D6CC5240078FA25 /* IconFontEnum.swift in Sources */,
+				3AC322051D6DC71A0078FA25 /* UnicodeStringProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
