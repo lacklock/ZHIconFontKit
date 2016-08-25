@@ -8,14 +8,10 @@
 
 import Foundation
 
-public enum DXYIconFont: Int{
+public enum DXYIconFont: Int,UnicodeString{
     case qrcode = 59031
     case addChat = 59027
-    
-    var unicodeString: String{
-        get{
-            let scalar = UnicodeScalar(rawValue)
-            return "\(scalar)"
-        }
-    }
+    case sign = 59017
+    case checkBox = 58887
+    case safari = 58882
 }

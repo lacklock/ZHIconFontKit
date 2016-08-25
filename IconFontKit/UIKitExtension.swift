@@ -8,18 +8,18 @@
 
 import UIKit
 
-extension UIButton{
+public extension UIButton{
     
-    func setTitleIconFont(iconfont: DXYIconFont, size: CGFloat) {
+    func setTitleIconFont(iconfont: UnicodeString, size: CGFloat) {
         titleLabel?.font = IconFont.fontWithSize(size)
         setTitle(iconfont.unicodeString, forState: .Normal)
     }
     
 }
 
-extension UILabel{
+public extension UILabel{
     
-    func setIconFont(iconfont: DXYIconFont, size: CGFloat){
+    func setIconFont(iconfont: UnicodeString, size: CGFloat){
         font = IconFont.fontWithSize(size)
         text = iconfont.unicodeString
     } 
