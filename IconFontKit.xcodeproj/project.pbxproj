@@ -15,10 +15,10 @@
 		3A24D83B1D6EE61B0079554C /* IconFontKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC321D51D6CC42E0078FA25 /* IconFontKit.framework */; };
 		3A24D83C1D6EE61B0079554C /* IconFontKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC321D51D6CC42E0078FA25 /* IconFontKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3A24D8421D6EE9E30079554C /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A24D8411D6EE6C00079554C /* iconfont.ttf */; };
+		3A24D8641D6FEA7C0079554C /* DXYIconFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A24D8631D6FEA7C0079554C /* DXYIconFont.swift */; };
 		3AC321D91D6CC42E0078FA25 /* IconFontKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AC321D81D6CC42E0078FA25 /* IconFontKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AC321ED1D6CC5240078FA25 /* FontBlaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC321E91D6CC5240078FA25 /* FontBlaster.swift */; };
 		3AC321EE1D6CC5240078FA25 /* IconFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC321EA1D6CC5240078FA25 /* IconFont.swift */; };
-		3AC321EF1D6CC5240078FA25 /* DXYIconFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC321EB1D6CC5240078FA25 /* DXYIconFont.swift */; };
 		3AC321F01D6CC5240078FA25 /* UIKitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC321EC1D6CC5240078FA25 /* UIKitExtension.swift */; };
 		3AC322051D6DC71A0078FA25 /* UnicodeStringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC322041D6DC71A0078FA25 /* UnicodeStringProtocol.swift */; };
 /* End PBXBuildFile section */
@@ -56,12 +56,12 @@
 		3A24D8351D6EE5E90079554C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A24D8371D6EE5E90079554C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A24D8411D6EE6C00079554C /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
+		3A24D8631D6FEA7C0079554C /* DXYIconFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DXYIconFont.swift; sourceTree = "<group>"; };
 		3AC321D51D6CC42E0078FA25 /* IconFontKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IconFontKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AC321D81D6CC42E0078FA25 /* IconFontKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IconFontKit.h; sourceTree = "<group>"; };
 		3AC321DA1D6CC42E0078FA25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AC321E91D6CC5240078FA25 /* FontBlaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontBlaster.swift; sourceTree = "<group>"; };
 		3AC321EA1D6CC5240078FA25 /* IconFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconFont.swift; sourceTree = "<group>"; };
-		3AC321EB1D6CC5240078FA25 /* DXYIconFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DXYIconFont.swift; path = ../IconFontKit/DXYIconFont.swift; sourceTree = "<group>"; };
 		3AC321EC1D6CC5240078FA25 /* UIKitExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitExtension.swift; sourceTree = "<group>"; };
 		3AC322041D6DC71A0078FA25 /* UnicodeStringProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnicodeStringProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,7 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				3A24D8401D6EE6980079554C /* Default */,
-				3AC321EB1D6CC5240078FA25 /* DXYIconFont.swift */,
+				3A24D8631D6FEA7C0079554C /* DXYIconFont.swift */,
 				3A24D82D1D6EE5E90079554C /* ViewController.swift */,
 				3A24D82F1D6EE5E90079554C /* Main.storyboard */,
 				3A24D8411D6EE6C00079554C /* iconfont.ttf */,
@@ -263,6 +263,7 @@
 			files = (
 				3A24D82E1D6EE5E90079554C /* ViewController.swift in Sources */,
 				3A24D82C1D6EE5E90079554C /* AppDelegate.swift in Sources */,
+				3A24D8641D6FEA7C0079554C /* DXYIconFont.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +274,6 @@
 				3AC321ED1D6CC5240078FA25 /* FontBlaster.swift in Sources */,
 				3AC321EE1D6CC5240078FA25 /* IconFont.swift in Sources */,
 				3AC321F01D6CC5240078FA25 /* UIKitExtension.swift in Sources */,
-				3AC321EF1D6CC5240078FA25 /* DXYIconFont.swift in Sources */,
 				3AC322051D6DC71A0078FA25 /* UnicodeStringProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -472,6 +472,7 @@
 				3A24D8391D6EE5E90079554C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3AC321CF1D6CC42E0078FA25 /* Build configuration list for PBXProject "IconFontKit" */ = {
 			isa = XCConfigurationList;
