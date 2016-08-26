@@ -4,4 +4,18 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 ![License](https://img.shields.io/github/license/mashape/apistatus.svg)
 
-Using Icon Font in Swift
+Using icon font in Swift
+
+# Installation
+
+### CocoaPods
+To integrate ZHIconFontKit into your Xcode project using CocoaPods, specify it in your Podfile:
+
+``` ruby
+  use_frameworks!
+
+  pod ‘ZHIconFontKit’
+
+```
+### Manual
+Just copy the files which under IconFontKit folder to your project
