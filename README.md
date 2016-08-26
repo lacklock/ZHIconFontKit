@@ -32,17 +32,34 @@ Just copy the files which under IconFontKit folder to your project
 1.make sure you font has been copy to bundle,check Build Phases:
 ![Copy Bundle Resources](https://github.com/lacklock/ZHIconFontKit/blob/master/Resource/copyBundle.png)
 
-2.after <cde>import IconFontKit</cde>,register icon font:
+2.after <code>import IconFontKit</code>,register icon font:
 ``` swift
         IconFont.registerIconFontWithName("iconfont")
 ```
-3.create a <cde>enum</cde> rawValue type is Int and conform to <cde>UnicodeString</cde> protocol:
+
+3.create a <code>enum</code> rawValue type is Int and conform to <code>UnicodeString</code> protocol:
 ``` swift
  enum DXYIconFont: Int,UnicodeString{
     case xxx = 59031
     case yyy = 59027
 }
 ```
+
+### UILabel
+``` swift
+     label.setIconFont(DXYIconFont.xxx, size: 40)
+```
+### UIButton
+``` swift
+     button.setTitleIconFont(DXYIconFont.yyy, size: 50)
+```
+### UIImage
+``` swift
+     imageView.image = UIImage.iconForIconFont(DXYIconFont.safari, size: 100, color: UIColor.purpleColor(), backgroundColor: UIColor.grayColor(), iconInset: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0))
+
+```
+### Xib
+If you are using in xib,just the same as using a cutom font.After set font as custom font,then paste icon from FontBook in atturibute pannel
 
 # SNS
 Weibo : [@没故事的卓同学](http://weibo.com/1926303682)
