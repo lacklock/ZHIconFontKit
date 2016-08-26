@@ -6,6 +6,9 @@
 
 Using icon font in Swift
 
+# Requirements
+iOS 8.0+
+
 # Installation
 
 ### CocoaPods
@@ -19,3 +22,13 @@ To integrate ZHIconFontKit into your Xcode project using CocoaPods, specify it i
 ```
 ### Manual
 Just copy the files which under IconFontKit folder to your project
+
+# Thaks
+[FontBlaster](https://github.com/ArtSabintsev/FontBlaster)
+[IconFont](https://github.com/JohnWong/IconFont)
+
+#Usage
+
+
+# SNS
+Weibo : [@没故事的卓同学](http://weibo.com/1926303682)
