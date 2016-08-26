@@ -32,6 +32,17 @@ Just copy the files which under IconFontKit folder to your project
 1.make sure you font has been copy to bundle,check Build Phases:
 ![Copy Bundle Resources](https://github.com/lacklock/ZHIconFontKit/blob/master/Resource/copyBundle.png)
 
+2.after <cde>import IconFontKit</cde>,register icon font:
+``` swift
+        IconFont.registerIconFontWithName("iconfont")
+```
+3.create a <cde>enum</cde> rawValue type is Int and conform to <cde>UnicodeString</cde> protocol:
+``` swift
+ enum DXYIconFont: Int,UnicodeString{
+    case xxx = 59031
+    case yyy = 59027
+}
+```
 
 # SNS
 Weibo : [@没故事的卓同学](http://weibo.com/1926303682)
