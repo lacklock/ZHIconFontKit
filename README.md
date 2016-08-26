@@ -32,7 +32,7 @@ Just copy the files which under IconFontKit folder to your project
 1.make sure you font has been copy to bundle,check Build Phases:
 ![Copy Bundle Resources](https://github.com/lacklock/ZHIconFontKit/blob/master/Resource/copyBundle.png)
 
-2.after <code>import IconFontKit</code>,register icon font:
+2.after <code>import ZHIconFontKit</code>,register icon font:
 ``` swift
 IconFont.registerIconFontWithName("iconfont")
 ```
