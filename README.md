@@ -25,9 +25,12 @@ Just copy the files which under IconFontKit folder to your project
 
 # Thaks
 [FontBlaster](https://github.com/ArtSabintsev/FontBlaster)
+
 [IconFont](https://github.com/JohnWong/IconFont)
 
 #Usage
+1.make sure you font has been copy to bundle,check Build Phases:
+![Copy Bundle Resources](https://github.com/lacklock/ZHIconFontKit/blob/master/Resource/copyBundle.png)
 
 
 # SNS
