@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import IconFontKit
 
 public enum DXYIconFont: Int,UnicodeString{
     case qrcode = 59031
