@@ -20,6 +20,10 @@ To integrate ZHIconFontKit into your Xcode project using CocoaPods, specify it i
   pod ‘ZHIconFontKit’
 
 ```
+if you are using swift 2.3:
+``` ruby
+   pod 'ZHIconFontKit',:git => 'https://github.com/lacklock/ZHIconFontKit.git',:branch => '2.3'
+```
 ### Manual
 Just copy the files which under IconFontKit folder to your project
 
