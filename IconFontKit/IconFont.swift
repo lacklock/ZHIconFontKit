@@ -12,12 +12,12 @@ public class IconFont: NSObject {
     
     public static private(set) var fontName = ""
     
-    public static func registerIconFont(withFontName fontName: String){
+    public static func registerIconFont(withFontName fontName: String) {
         self.fontName = fontName
         FontBlaster.blast()
     }
     
-    public static func font(withSize size: CGFloat) -> UIFont{
+    public static func font(withSize size: CGFloat) -> UIFont {
         assert(fontName != "", "should invoke registerIconFontWithName")
         if let font = UIFont(name: fontName, size: size){
             return font

@@ -17,7 +17,7 @@ public extension UIButton {
     
 }
 
-public extension UILabel{
+public extension UILabel {
     
     func set(iconfont: UnicodeString, size: CGFloat){
         font = IconFont.font(withSize: size)
@@ -25,7 +25,7 @@ public extension UILabel{
     } 
 }
 
-public extension UIImage{
+public extension UIImage {
     
     static func icon(forIconFont iconfont: UnicodeString, size: CGFloat, color: UIColor, backgroundColor: UIColor = UIColor.clear,iconInset: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)) -> UIImage {
         let height = size - iconInset.top - iconInset.bottom
