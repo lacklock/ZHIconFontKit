@@ -17,13 +17,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        IconFont.registerIconFontWithName("iconfont")
+        IconFont.registerIconFont(withFontName: "iconfont")
         
-        label.setIconFont(DXYIconFont.addChat, size: 40)
-        button.setTitleIconFont(DXYIconFont.qrcode, size: 50)
-        imageView.image = UIImage.iconForIconFont(DXYIconFont.safari, size: 100, color: UIColor.purpleColor(), backgroundColor: UIColor.grayColor(), iconInset: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0))
+        label.set(iconfont: DXYIconFont.addChat, size: 40)
+        button.setTitle(iconFont: DXYIconFont.qrcode, size: 50)
+        imageView.image = UIImage.icon(forIconFont: DXYIconFont.safari, size: 100, color: UIColor.purple, backgroundColor: UIColor.gray, iconInset: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0))
     }
     
-
+    
 }
 

@@ -8,14 +8,14 @@
 
 import Foundation
 
-public protocol UnicodeString{
+public protocol UnicodeString {
     var unicodeString: String { get }
 }
 
 public extension UnicodeString where Self: RawRepresentable, Self.RawValue == Int {
-    var unicodeString: String{
+    var unicodeString: String {
         get{
-            let scalar = UnicodeScalar(rawValue)
+            let scalar = UnicodeScalar(rawValue)!
             return "\(scalar)"
         }
     }

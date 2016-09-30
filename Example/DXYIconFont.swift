@@ -9,7 +9,7 @@
 import Foundation
 import IconFontKit
 
-public enum DXYIconFont: Int,UnicodeString{
+public enum DXYIconFont: Int,UnicodeString {
     case qrcode = 59031
     case addChat = 59027
     case sign = 59017
