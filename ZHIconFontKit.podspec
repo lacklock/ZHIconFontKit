@@ -10,7 +10,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ZHIconFontKit"
-  s.version      = "0.2.0"
+  s.version      = "0.2.1"
   s.summary      = "Using icon font in Swift"
   s.homepage     = "https://github.com/lacklock/ZHIconFontKit"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
