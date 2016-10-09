@@ -12,9 +12,11 @@ public class IconFont: NSObject {
     
     public static private(set) var fontName = ""
     
-    public static func registerIconFontWithName(fontName: String){
+    public static func registerIconFontWithName(fontName: String, shouldLoadFont: Bool = true){
         self.fontName = fontName
-        FontBlaster.blast()
+        if shouldLoadFont {
+            FontBlaster.blast()
+        }
     }
     
     public static func fontWithSize(size: CGFloat) -> UIFont{
