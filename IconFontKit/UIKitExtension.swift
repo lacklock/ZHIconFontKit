@@ -43,7 +43,7 @@ public extension UIImage {
         }
         
         let point = CGPoint(x: iconInset.left * scale, y: iconInset.top * scale)
-        (iconfont.unicodeString as NSString).draw(at: point, withAttributes: [NSFontAttributeName:font,     NSForegroundColorAttributeName :color])
+        (iconfont.unicodeString as NSString).draw(at: point, withAttributes: [NSAttributedStringKey.font : font, NSAttributedStringKey.foregroundColor : color])
         let image = UIImage(cgImage: UIGraphicsGetImageFromCurrentImageContext()!.cgImage!, scale: scale, orientation: .up)
         UIGraphicsEndImageContext()
         return image

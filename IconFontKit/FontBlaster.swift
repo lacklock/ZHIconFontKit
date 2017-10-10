@@ -87,137 +87,137 @@ fileprivate extension FontBlaster {
             let contents = try FileManager.default.contentsOfDirectory(atPath: path) as [String]
             let loadedFonts = fonts(fromPath: path, withContents: contents)
             if !loadedFonts.isEmpty {
-            for font in loadedFonts {
-            loadFont(font: font)
-            }
+                for font in loadedFonts {
+                    loadFont(font: font)
+                }
             } else {
-            printDebugMessage(message: "No fonts were found in the bundle path: \(path).")
+                printDebugMessage(message: "No fonts were found in the bundle path: \(path).")
             }
-            } catch let error as NSError {
+        } catch let error as NSError {
             printDebugMessage(message: "There was an error loading fonts from the bundle. \nPath: \(path).\nError: \(error)")
-            }
-            }
-            
-            /**
-             Loads all fonts found in a bundle that is loaded within another bundle.
-             
-             - parameter path: The absolute path to the bundle.
-             */
-            class func loadFontsFromBundlesFoundInBundle(path: String) {
-            
-            do {
+        }
+    }
+    
+    /**
+     Loads all fonts found in a bundle that is loaded within another bundle.
+     
+     - parameter path: The absolute path to the bundle.
+     */
+    class func loadFontsFromBundlesFoundInBundle(path: String) {
+        
+        do {
             let contents = try FileManager.default.contentsOfDirectory(atPath: path)
             
             for item in contents {
-            
-            if let url = URL(string: path),
-            item.contains(".bundle") {
-            let urlPathString = url.appendingPathComponent(item).absoluteString
-            loadFontsForBundle(withPath: urlPathString)
+                
+                if let url = URL(string: path),
+                    item.contains(".bundle") {
+                    let urlPathString = url.appendingPathComponent(item).absoluteString
+                    loadFontsForBundle(withPath: urlPathString)
+                }
+                
             }
             
-            }
-            
-            } catch let error as NSError {
+        } catch let error as NSError {
             printDebugMessage(message: "There was an error accessing bundle with path. \nPath: \(path).\nError: \(error)")
-            }
-            
-            }
-            
-            /**
-             Loads a specific font.
-             
-             - parameter font: The font to load.
-             */
-            class func loadFont(font: Font) {
-            let fontPath: FontPath = font.path
-            let fontName: FontName = font.name
-            let fontExtension: FontExtension = font.ext
-            
-            let fontFileURL = URL(fileURLWithPath: fontPath).appendingPathComponent(fontName).appendingPathExtension(fontExtension)
-            
-            var fontError: Unmanaged<CFError>?
-            
-            if let fontData = try? Data(contentsOf: fontFileURL) as CFData,
-            let dataProvider = CGDataProvider(data: fontData) {
-            
-            let fontRef = CGFont(dataProvider)
-            
-            if CTFontManagerRegisterGraphicsFont(fontRef, &fontError) {
-            
-            if let postScriptName = fontRef.postScriptName {
-            printDebugMessage(message: "Successfully loaded font: '\(postScriptName)'.")
-            loadedFonts.append(String(postScriptName))
-            }
-            
-            } else if let fontError = fontError?.takeRetainedValue() {
-            let errorDescription = CFErrorCopyDescription(fontError)
-            printDebugMessage(message: "Failed to load font '\(fontName)': \(errorDescription)")
-            }
-            
-            } else {
+        }
+        
+    }
+    
+    /**
+     Loads a specific font.
+     
+     - parameter font: The font to load.
+     */
+    class func loadFont(font: Font) {
+        let fontPath: FontPath = font.path
+        let fontName: FontName = font.name
+        let fontExtension: FontExtension = font.ext
+        
+        let fontFileURL = URL(fileURLWithPath: fontPath).appendingPathComponent(fontName).appendingPathExtension(fontExtension)
+        
+        var fontError: Unmanaged<CFError>?
+        
+        guard let fontData = try? Data(contentsOf: fontFileURL) as CFData, let dataProvider = CGDataProvider(data: fontData) else {
             
             guard let fontError = fontError?.takeRetainedValue() else {
-            printDebugMessage(message: "Failed to load font '\(fontName)'.")
-            return
+                printDebugMessage(message: "Failed to load font '\(fontName)'.")
+                return
             }
             
-            let errorDescription = CFErrorCopyDescription(fontError)
+            let errorDescription = String(describing: (fontError))
             printDebugMessage(message: "Failed to load font '\(fontName)': \(errorDescription)")
+            
+            return
+        }
+        
+        guard let fontRef = CGFont(dataProvider) else {
+            fatalError("can't load font")
+        }
+        
+        if CTFontManagerRegisterGraphicsFont(fontRef, &fontError) {
+            if let postScriptName = fontRef.postScriptName {
+                printDebugMessage(message: "Successfully loaded font: '\(postScriptName)'.")
+                loadedFonts.append(String(postScriptName))
             }
             
-            }
-            }
-            
-            
-            // MARK: - Helpers (Miscellaneous)
-            
-            fileprivate extension FontBlaster {
-            /**
-             Parses a font into its name and extension components.
-             
-             - parameter path: The absolute path to the font file.
-             - parameter contents: The contents of an NSBundle as an array of String objects.
-             - returns: A tuple with the font's name and extension.
-             */
-            class func fonts(fromPath path: String, withContents contents: [String]) -> [Font] {
-            var fonts = [Font]()
-            for fontName in contents {
+        } else if let fontError = fontError?.takeRetainedValue() {
+            let errorDescription = String(describing: CFErrorCopyDescription(fontError))
+            printDebugMessage(message: "Failed to load font '\(fontName)': \(errorDescription)")
+        }
+        
+    }
+}
+
+
+// MARK: - Helpers (Miscellaneous)
+
+fileprivate extension FontBlaster {
+    /**
+     Parses a font into its name and extension components.
+     
+     - parameter path: The absolute path to the font file.
+     - parameter contents: The contents of an NSBundle as an array of String objects.
+     - returns: A tuple with the font's name and extension.
+     */
+    class func fonts(fromPath path: String, withContents contents: [String]) -> [Font] {
+        var fonts = [Font]()
+        for fontName in contents {
             var parsedFont: (FontName, FontExtension)?
             
             if fontName.contains(SupportedFontExtensions.TrueTypeFont.rawValue) || fontName.contains(SupportedFontExtensions.OpenTypeFont.rawValue) {
-            parsedFont = font(fromName: fontName)
+                parsedFont = font(fromName: fontName)
             }
             
             if let parsedFont = parsedFont {
-            let font: Font = (path, parsedFont.0, parsedFont.1)
-            fonts.append(font)
+                let font: Font = (path, parsedFont.0, parsedFont.1)
+                fonts.append(font)
             }
-            }
-            
-            return fonts
-            }
-            
-            /**
-             Parses a font into its name and extension components.
-             
-             - parameter The: name of the font.
-             - returns: A tuple with the font's name and extension.
-             */
-            class func font(fromName name: String) -> (FontName, FontExtension) {
-            let components = name.characters.split{$0 == "."}.map { String($0) }
-            return (components[0], components[1])
-            }
-            
-            /**
-             Prints debug messages to the console if debugEnabled is set to true.
-             
-             - parameter The: status to print to the console.
-             */
-            class func printDebugMessage(message: String) {
-            if debugEnabled == true {
+        }
+        
+        return fonts
+    }
+    
+    /**
+     Parses a font into its name and extension components.
+     
+     - parameter The: name of the font.
+     - returns: A tuple with the font's name and extension.
+     */
+    class func font(fromName name: String) -> (FontName, FontExtension) {
+        let components = name.characters.split{$0 == "."}.map { String($0) }
+        return (components[0], components[1])
+    }
+    
+    /**
+     Prints debug messages to the console if debugEnabled is set to true.
+     
+     - parameter The: status to print to the console.
+     */
+    class func printDebugMessage(message: String) {
+        if debugEnabled == true {
             print("[FontBlaster]: \(message)")
-            }
-            }
-            
+        }
+    }
+    
 }
